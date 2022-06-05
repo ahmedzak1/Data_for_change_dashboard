@@ -78,8 +78,9 @@ col4.subheader("Internal/State")
 col4.plotly_chart(fig_state, use_container_width=True)
 
 
-map_df = df_selection[['latitude', 'longitude']]
+map_df = df_selection[['index','latitude', 'longitude']]
 map_df = map_df.dropna()
+
 map_df['latitude'] = map_df['latitude'].astype(float)
 map_df['longitude'] = map_df['longitude'].astype(float)
 
