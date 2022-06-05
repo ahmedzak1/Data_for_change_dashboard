@@ -6,7 +6,7 @@ import numpy as np
 
 
 st.set_page_config(page_title="The FWM Dashboard", page_icon="🌐", layout="wide")
-data = 'Data_For_Change_Clean_Version.xlsx'
+data = r'C:\Users\USER\OneDrive\سطح المكتب\Data_For_Change_Clean_Version.xlsx'
 df = pd.read_excel(data)
 
 #----side bar----#
