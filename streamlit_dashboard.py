@@ -1,4 +1,6 @@
 from encodings import utf_8
+from pickletools import decimalnl_long
+from unicodedata import decimal
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -6,7 +8,7 @@ import numpy as np
 
 
 st.set_page_config(page_title="The FWM Dashboard", page_icon="🌐", layout="wide")
-data = 'Data_For_Change_Clean_Version.xlsx'
+data = r'C:\Users\USER\OneDrive\سطح المكتب\Data_For_Change_Clean_Version.xlsx'
 df = pd.read_excel(data)
 
 #----side bar----#
@@ -76,11 +78,10 @@ col4.subheader("Internal/State")
 col4.plotly_chart(fig_state, use_container_width=True)
 
 
-
 map_df = df_selection[['latitude', 'longitude']]
 map_df = map_df.dropna()
-map_df['latitude'] = pd.to_numeric(map_df['latitude'])
-map_df['longitude'] = pd.to_numeric(map_df['longitude'])
+map_df['latitude'] = map_df['latitude'].astype(float)
+map_df['longitude'] = map_df['longitude'].astype(float)
 
-st.map(map_df,use_container_width=True)
+st.map(map_df)
 
